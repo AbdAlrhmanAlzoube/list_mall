@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
             ProductsTableSeeder::class,
             UsersTableSeeder::class,
             OrdersTableSeeder::class,
-            OrderItemsTableSeeder::class,
             EmployeeTableSeeder::class,
 
         ]);

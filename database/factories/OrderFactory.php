@@ -1,21 +1,31 @@
 <?php
-
 namespace Database\Factories;
 
+
 use App\Models\Order;
-use App\Models\OrderItem;
+use App\Models\Employee;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 class OrderFactory extends Factory
 {
     protected $model = Order::class;
 
-    public function definition(): array
+    public function definition()
     {
-        $orderItem = OrderItem::inRandomOrder()->first();
+        $user = User::inRandomOrder()->firstOrFail();
+        
+        // Ensure that an Employee exists before trying to retrieve its id
+        $employee = Employee::inRandomOrder()->first();
+        if (!$employee) {
+            $employee = Employee::factory()->create(); // Create a new Employee if none exists
+        }
 
         return [
-            'total_amount' => $this->faker->randomFloat(2, 10, 100),
+            'user_id' => $user->id,
+            'employee_id' => $employee->id,
+            'total_amount' => $this->faker->randomFloat(2, 10, 1000),
+            // Add other attributes as needed
         ];
     }
 }

@@ -14,10 +14,11 @@ class EmployeeFactory extends Factory
     public function definition()
     {
         return [
-            'employee_number' => $this->faker->unique()->randomNumber(),
-            'image' => $this->faker->imageUrl(),
             'user_id'=> User::inRandomOrder()->first()->id,
 
+            'employee_number' => $this->faker->unique()->randomNumber(),
+            'image' => $this->faker->imageUrl(),
+           
         ];
     }
 }

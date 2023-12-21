@@ -14,13 +14,8 @@ class UpdateEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['sometimes', 'exists:users,id'],
-            'employee' => [
-                'sometimes',
-                'min:1', 
-            ],
-            'employee_number' => ['sometimes', 'integer'],
-            'image' => ['sometimes', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'employee_number' => ['string'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
 
         ];
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Product;
+namespace App\Http\Controllers\Admin\Employee;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Employee\StoreEmployeeRequest;
@@ -21,7 +21,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('admin.Employee.add_employee');
+        return view('admin.Employees.add_employee');
     }
 
     /**
@@ -35,7 +35,7 @@ class EmployeeController extends Controller
     }
     public function edit(Employee $employee)
     {
-        return view('admin.Employee.edit_employee', compact('employee'));
+        return view('admin.Employees.edit_employee', compact('employee'));
     }
     /**
      * Update the specified resource in storage.
@@ -51,7 +51,7 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($employee)
+    public function destroy(Employee $employee)
     {
        
         $employee->delete();
