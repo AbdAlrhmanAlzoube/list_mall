@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Product\EmployeeController;
+use App\Http\Controllers\Admin\Product\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,4 @@ Route::get('/', function () {
 
 Route::resource('categories',CategoryController::class)->names('categories');
 Route::resource('employees',EmployeeController::class)->names('employees');
-Route::resource('products',EmployeeController::class)->names('products');
+Route::resource('products',ProductController::class)->names('products');
