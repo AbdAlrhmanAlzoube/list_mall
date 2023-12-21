@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Product\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Admin.admin_dashboard');
 });
 
-;
+Route::resource('categories',CategoryController::class)->names('categories');
+Route::resource('employees',EmployeeController::class)->names('employees');
+Route::resource('products',EmployeeController::class)->names('products');
